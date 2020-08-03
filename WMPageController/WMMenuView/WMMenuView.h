@@ -22,6 +22,10 @@ typedef NS_ENUM(NSUInteger, WMMenuViewStyle) {
     WMMenuViewStyleSegmented,    // 涌入带边框,即网易新闻选项卡
 };
 
+typedef NS_ENUM(NSUInteger, WMMenuViewLabelStyle) {
+    WMMenuViewLabelStyleDefault,// 默认
+    WMMenuViewLabelStyleBold    //字体加粗
+};
 // 原先基础上添加了几个方便布局的枚举，更多布局格式可以通过设置 `itemsMargins` 属性来自定义
 // 以下布局均只在 item 个数较少的情况下生效，即无法滚动 MenuView 时.
 typedef NS_ENUM(NSUInteger, WMMenuViewLayoutMode) {
@@ -86,6 +90,7 @@ typedef NS_ENUM(NSUInteger, WMMenuViewLayoutMode) {
 @property (nonatomic, weak) id<WMMenuViewDataSource> dataSource;
 @property (nonatomic, weak) UIView *leftView;
 @property (nonatomic, weak) UIView *rightView;
+@property (nonatomic, assign) WMMenuViewLabelStyle labelStyle;
 @property (nonatomic, copy) NSString *fontName;
 @property (nonatomic, weak) UIScrollView *scrollView;
 /** 进度条的速度因数，默认为 15，越小越快， 大于 0 */

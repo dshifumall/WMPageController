@@ -490,11 +490,17 @@
         item.normalColor   = [self colorForState:WMMenuItemStateNormal atIndex:i];
         item.selectedColor = [self colorForState:WMMenuItemStateSelected atIndex:i];
         item.speedFactor   = self.speedFactor;
-        if (self.fontName) {
-            item.font = [UIFont fontWithName:self.fontName size:item.selectedSize];
-        } else {
-            item.font = [UIFont systemFontOfSize:item.selectedSize];
+        
+        if (self.labelStyle == WMMenuViewLabelStyleDefault) {
+            if (self.fontName) {
+                item.font = [UIFont fontWithName:self.fontName size:item.selectedSize];
+            } else {
+                item.font = [UIFont systemFontOfSize:item.selectedSize];
+            }
+        }else{
+            item.font = [UIFont boldSystemFontOfSize:item.selectedSize];
         }
+        
         if ([self.dataSource respondsToSelector:@selector(menuView:initialMenuItem:atIndex:)]) {
             item = [self.dataSource menuView:self initialMenuItem:item atIndex:i];
         }
