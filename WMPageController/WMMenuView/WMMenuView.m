@@ -495,7 +495,7 @@
             if (self.fontName) {
                 item.font = [UIFont fontWithName:self.fontName size:item.selectedSize];
             } else {
-                item.font = [UIFont systemFontOfSize:item.selectedSize];
+                item.font = [UIFont boldSystemFontOfSize:item.selectedSize];
             }
         }else{
             item.font = [UIFont boldSystemFontOfSize:item.selectedSize];
